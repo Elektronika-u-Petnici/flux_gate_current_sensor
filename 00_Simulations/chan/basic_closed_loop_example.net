@@ -1,0 +1,43 @@
+* C:\users\ostoja\Desktop\02_Elektronika\flux_gate_current_sensor\00_Simulations\chan\basic_closed_loop_example.asc
+V1 drv 0 PULSE({-V_amp} {V_amp} 0 10n 10n {0.5 / fsw} {1 / fsw})
+XU1 shunt_p drv P001 Winding n={N} L=10n Rs=1m Rp=100Meg
+XU4 P001 Core_Chan Bs=0.43 Br=0.1 Hc=8 A={Ae} Lm={le} Lg=0 Rp=1Meg
+R1 shunt_p 0 {R_drive_shunt}
+XU2 0 N004 P001 Winding n={1} L=10n Rs=1m Rp=100k
+I1 0 N005 PULSE(0 100m 0 1u 1u 1m 2m)
+V2 gate 0 PULSE(0 1 0 10n 10n {0.5 / 2 / fsw} {1 / 2/ fsw})
+XU7 N001 0 op opamp Aol=100K GBW=1000Meg
+XU6 drv shunt_n P002 Winding n={N} L=10n Rs=1m Rp=100Meg
+XU8 P002 Core_Chan Bs=0.43 Br=0.1 Hc=8 A={Ae} Lm={le} Lg=0 Rp=1Meg
+R6 shunt_n 0 {R_drive_shunt}
+XU9 N004 N005 P002 Winding n={1} L=10n Rs=1m Rp=100k
+XU3 N006 N007 e opamp Aol=100K GBW=10Meg
+R3 e N006 10k
+R7 N006 shunt_p 10k
+R8 N007 shunt_n 10k
+R9 0 N007 10k
+XU10 N009 N008 P001 Winding n={N_comp} L=10n Rs=1m Rp=100Meg
+XU11 N008 op P002 Winding n={N_comp} L=10n Rs=1m Rp=100Meg
+R10 N009 0 {R_comp_shunt}
+B1 N002 0 V=V(e) * V(gate)
+R5 N001 N002 10k
+C4 N001 op 510p
+E1 NC_01 0 N003 0 1
+R2 N003 N002 1k
+C1 0 N003 10n
+R11 op N001 20Meg
+.tran 0 1000m 0 10n
+.param Ae=19.73u le=38.52m
+.param fsw = 75k
+.param V_amp = 10
+* T38 16x9x6.3
+.param N_comp = 2
+* T38 16x9x6.3
+.param N = 4
+.param R_drive_shunt = 1
+.param R_comp_shunt = 1
+.lib Core_Chan.lib
+.lib opamp.sub
+.lib Winding.lib
+.backanno
+.end

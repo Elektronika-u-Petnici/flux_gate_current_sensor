@@ -1,0 +1,44 @@
+Circuit: * C:\users\ostoja\Desktop\02_Elektronika\flux_gate_current_sensor\00_Simulations\chan\linear_range_test.asc
+
+WARNING: Less than two connections to node NC_01.  This node is used by E:U11:W.
+Direct Newton iteration for .op point succeeded.
+Ignoring empty pin current: Ix(u7:1)
+Ignoring empty pin current: Ix(u7:2)
+Ignoring empty pin current: Ix(u3:1)
+Ignoring empty pin current: Ix(u3:2)
+Ignoring empty pin current: Ix(u5:1)
+Ignoring empty pin current: Ix(u5:2)
+Ignoring empty pin current: Ix(u12:1)
+Ignoring empty pin current: Ix(u12:2)
+Ignoring empty pin current: Ix(u7:1)
+Ignoring empty pin current: Ix(u7:2)
+Ignoring empty pin current: Ix(u3:1)
+Ignoring empty pin current: Ix(u3:2)
+Ignoring empty pin current: Ix(u5:1)
+Ignoring empty pin current: Ix(u5:2)
+Ignoring empty pin current: Ix(u12:1)
+Ignoring empty pin current: Ix(u12:2)
+.step current=0
+.step current=4
+.step current=8
+.step current=12
+.step current=16
+.step current=20
+.step current=24
+
+Date: Tue Nov 03 19:59:41 2026
+Total elapsed time: 42.365 seconds.
+
+tnom = 27
+temp = 27
+method = Gear
+totiter = 1470493
+traniter = 1470490
+tranpoints = 734893
+accept = 728132
+rejected = 6761
+matrix size = 41
+fillins = 27
+solver = Normal
+Matrix Compiler1:     139 opcodes  0.4/0.2/[0.2]
+Matrix Compiler2: off
